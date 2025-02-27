@@ -5,95 +5,80 @@ import Image from "next/image";
 
 export function Footer() {
   return (
-    <footer className="bg-[#0a0a0a] border-t border-[#ffffff10] w-full">
-      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <Grid gutter={50}>
+    <footer className="bg-tech-grey border-t border-neuro-blue/20 w-full">
+      <div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <Grid gutter="xl">
           {/* Services Columns */}
           <Grid.Col span={{ base: 12, lg: 8 }}>
-            <Grid>
+            <Grid gutter="md">
               {/* Marketing Services */}
               <Grid.Col span={{ base: 12, md: 4 }}>
-              <Text style={{ color: "#FFFFFF" }} className="font-bold mb-6 text-lg uppercase tracking-wide">
-                Marketing Services
-              </Text>
-
-                <List spacing="xs" center>
-                  <List.Item className="text-gray-400 text-sm hover:text-white transition-colors">
-                    Brand Strategy & Positioning
-                  </List.Item>
-                  <List.Item className="text-gray-400 text-sm hover:text-white transition-colors">
-                    Advertising Campaigns (TVCs, Radio, Digital)
-                  </List.Item>
-                  <List.Item className="text-gray-400 text-sm hover:text-white transition-colors">
-                    Social Media Management
-                  </List.Item>
-                  <List.Item className="text-gray-400 text-sm hover:text-white transition-colors">
-                    Content Creation & Storytelling
-                  </List.Item>
-                  <List.Item className="text-gray-400 text-sm hover:text-white transition-colors">
-                    Public Relations & Corporate Communication
-                  </List.Item>
+                <Text className="text-creative-yellow font-lato font-bold mb-4 text-base uppercase tracking-wide">
+                  Marketing
+                </Text>
+                <List spacing={4} className="font-open-sans text-sm">
+                  {[
+                    "Brand Strategy",
+                    "Advertising Campaigns",
+                    "Social Media",
+                    "Content Creation",
+                    "PR & Comms"
+                  ].map((item, index) => (
+                    <List.Item key={index} className="text-gray-300 hover:text-cultural-red transition-colors mb-1">
+                      {item}
+                    </List.Item>
+                  ))}
                 </List>
               </Grid.Col>
 
               {/* Training Services */}
               <Grid.Col span={{ base: 12, md: 4 }}>
-              <Text style={{ color: "#FFFFFF" }} className="font-bold mb-6 text-lg uppercase tracking-wide">
-               Training Services
-              </Text>
-            
-                <List spacing="xs" center>
-                  <List.Item className="text-gray-400 text-sm hover:text-white transition-colors">
-                    Corporate & Business Training
-                  </List.Item>
-                  <List.Item className="text-gray-400 text-sm hover:text-white transition-colors">
-                    Brand Development Consulting
-                  </List.Item>
-                  <List.Item className="text-gray-400 text-sm hover:text-white transition-colors">
-                    Customer Experience Training
-                  </List.Item>
-                  <List.Item className="text-gray-400 text-sm hover:text-white transition-colors">
-                    Digital Strategy Workshops
-                  </List.Item>
-                  <List.Item className="text-gray-400 text-sm hover:text-white transition-colors">
-                    Market Research & Consumer Insights
-                  </List.Item>
+                <Text className="text-creative-yellow font-lato font-bold mb-4 text-base uppercase tracking-wide">
+                  Training
+                </Text>
+                <List spacing={4} className="font-open-sans text-sm">
+                  {[
+                    "Corporate Training",
+                    "Brand Consulting",
+                    "CX Training",
+                    "Digital Workshops",
+                    "Market Research"
+                  ].map((item, index) => (
+                    <List.Item key={index} className="text-gray-300 hover:text-cultural-red transition-colors mb-1">
+                      {item}
+                    </List.Item>
+                  ))}
                 </List>
               </Grid.Col>
 
               {/* Digital Solutions */}
               <Grid.Col span={{ base: 12, md: 4 }}>
-              <Text style={{ color: "#FFFFFF" }} className="font-bold mb-6 text-lg uppercase tracking-wide">
-               Digital Solutions
-              </Text>
-              
-                <List spacing="xs" center>
-                  <List.Item className="text-gray-400 text-sm hover:text-white transition-colors">
-                    Website Design & Development
-                  </List.Item>
-                  <List.Item className="text-gray-400 text-sm hover:text-white transition-colors">
-                    SEO & Digital Advertising
-                  </List.Item>
-                  <List.Item className="text-gray-400 text-sm hover:text-white transition-colors">
-                    E-Commerce Solutions
-                  </List.Item>
-                  <List.Item className="text-gray-400 text-sm hover:text-white transition-colors">
-                    Data Analytics & Optimization
-                  </List.Item>
-                  <List.Item className="text-gray-400 text-sm hover:text-white transition-colors">
-                    Cloud Infrastructure Setup
-                  </List.Item>
+                <Text className="text-creative-yellow font-lato font-bold mb-4 text-base uppercase tracking-wide">
+                  Digital
+                </Text>
+                <List spacing={4} className="font-open-sans text-sm">
+                  {[
+                    "Web Development",
+                    "SEO & Ads",
+                    "E-Commerce",
+                    "Data Analytics",
+                    "Cloud Solutions"
+                  ].map((item, index) => (
+                    <List.Item key={index} className="text-gray-300 hover:text-cultural-red transition-colors mb-1">
+                      {item}
+                    </List.Item>
+                  ))}
                 </List>
               </Grid.Col>
             </Grid>
           </Grid.Col>
 
-          {/* Professional Image */}
-          <Grid.Col span={{ base: 12, lg: 4 }} className="lg:flex lg:justify-end">
-            <div className="relative h-80 w-full lg:w-[400px] rounded-xl overflow-hidden border-2 border-cultural-red/20">
+          {/* Compact Image */}
+          <Grid.Col span={{ base: 12, lg: 4 }} className="mt-8 lg:mt-0">
+            <div className="relative h-64 w-full rounded-lg overflow-hidden border border-cultural-red/20">
               <Image
                 src="/assets/professional.jpg"
-                alt="Professional working"
+                alt="Teamwork"
                 fill
                 className="object-cover hover:scale-105 transition-transform"
               />
@@ -101,35 +86,30 @@ export function Footer() {
           </Grid.Col>
         </Grid>
 
-        {/* Separator */}
-        <hr className="my-12 border-[#ffffff10] w-full" />
+        {/* Compact Branding */}
+        <div className="mt-8 flex flex-col items-center gap-4">
+          <Text className="text-xl font-lato font-bold text-white">
+            MO<span className="text-creative-yellow">CREATIVES</span>
+          </Text>
+          <div className="flex gap-4">
+            {[BrandLinkedin, BrandTwitter, BrandFacebook, BrandInstagram].map((Icon, index) => (
+              <button
+                key={index}
+                className="w-8 h-8 rounded-full bg-neuro-blue/20 flex items-center justify-center
+                         hover:bg-creative-yellow transition-all duration-300"
+              >
+                <Icon size={16} className="text-creative-yellow" />
+              </button>
+            ))}
+          </div>
+        </div>
 
-        {/* Brand Logo */}
-        <div className="flex justify-center mb-8">
-          <Text className="text-3xl font-bold text-white tracking-tighter">
-            NEX<span className="text-cultural-red">GEN</span>
+        {/* Compact Copyright */}
+        <div className="mt-6 border-t border-neuro-blue/20 pt-4">
+          <Text className="text-center text-xs text-gray-300 font-open-sans">
+            © 2024 Mo Creatives | Privacy | Terms
           </Text>
         </div>
-
-        {/* Social Icons */}
-        <div className="flex justify-center gap-6">
-          {[BrandLinkedin, BrandTwitter, BrandFacebook, BrandInstagram].map((Icon, index) => (
-            <button
-              key={index}
-              className="w-12 h-12 rounded-full bg-[#ffffff10] flex items-center justify-center
-                       hover:bg-cultural-red transition-all duration-300"
-            >
-              <Icon size={24} className="text-white" />
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Copyright */}
-      <div className="bg-black py-4 w-full mt-8">
-        <Text className="text-center text-sm text-gray-500">
-          © 2024 NexGen Solutions. All rights reserved. | Privacy Policy | Terms of Service
-        </Text>
       </div>
     </footer>
   );
