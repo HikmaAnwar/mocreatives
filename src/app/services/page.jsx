@@ -41,10 +41,10 @@ const services = [
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-tech-grey">
+    <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <div className="relative w-full h-[70vh] overflow-hidden bg-gradient-to-br from-black to-tech-grey">
-        <div className="absolute inset-0 bg-[url('/assets/grid-pattern.svg')] opacity-10 mix-blend-overlay" />
+      <div className="relative w-full h-[90vh] overflow-hidden bg-gradient-to-br from-neuro-blue via-white to-creative-yellow">
+        <div className="absolute inset-0 bg-[url('/assets/grid.jpg')] opacity-10 mix-blend-overlay" />
         
         {/* Floating Elements */}
         {[...Array(20)].map((_, i) => (
@@ -70,57 +70,91 @@ export default function ServicesPage() {
           />
         ))}
 
-        {/* Hero Content */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="relative flex flex-col items-center justify-center h-full text-center px-6"
-        >
-          <Title className="text-6xl md:text-8xl font-black mb-8 tracking-tighter">
-            <span className="text-creative-yellow">Our Core</span>
-            <span className="text-white"> Services</span>
-          </Title>
-          
-          <div className="relative mb-8">
-            <div className="h-1.5 bg-neuro-blue w-1/3 mx-auto rounded-full" />
-          </div>
+        <Container size="xl" className="h-full">
+          <Grid gutter="xl" align="center" className="h-full">
+            <Grid.Col span={{ base: 12, md: 6 }} className="relative z-10">
+              <motion.div
+                initial={{ opacity: 0, y: 40 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-left"
+              >
+                <Text className="text-cultural-red uppercase font-semibold tracking-wider mb-4">
+                  Innovation meets excellence
+                </Text>
+                
+                <Title className="text-5xl md:text-7xl font-black mb-6 tracking-tighter font-lato leading-tight">
+                  <span className="text-neuro-blue">OUR CORE</span>{' '}
+                  <span className="text-cultural-red">SERVICES</span>
+                </Title>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-8"
-          >
-            <Text className="text-xl md:text-2xl max-w-3xl text-white font-medium">
-              Transform your digital presence with{' '}
-              <span className="text-neuro-blue font-bold">end-to-end solutions</span>{' '}
-              designed to drive exceptional results
-            </Text>
-          </motion.div>
+                <Text className="text-xl md:text-2xl text-tech-grey font-medium font-open-sans max-w-xl mb-8">
+                  Accelerate your growth with cutting-edge strategies and data-driven marketing solutions.
+                </Text>
 
+                <div className="flex items-center gap-6">
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.5 }}
+                  >
+                    <Button
+                      size="xl"
+                      className="bg-neuro-blue hover:bg-[#2F6ECD] transition-colors font-lato group"
+                      rightSection={<ChevronRight size={20} className="transition-transform group-hover:translate-x-1" />}
+                    >
+                      Explore Possibilities
+                    </Button>
+                  </motion.div>
+                  <Text className="text-cultural-red font-semibold hidden sm:block">
+                    15+ Years of Digital Excellence
+                  </Text>
+                </div>
+              </motion.div>
+            </Grid.Col>
+
+            <Grid.Col span={{ base: 12, md: 6 }} className="relative">
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8 }}
+                className="relative h-[600px]"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-neuro-blue/10 to-creative-yellow/10 -rotate-6 rounded-3xl transform scale-105" />
+                <img
+                  src="/assets/services.jpg"
+                  alt="Digital Solutions"
+                  className="absolute inset-0 w-full h-full object-contain object-right rounded-2xl transform rotate-1 shadow-2xl"
+                />
+                <div className="absolute -left-12 bottom-20 bg-white p-4 rounded-xl shadow-lg">
+                  <div className="bg-neuro-blue text-white p-3 rounded-lg text-center">
+                    <Text className="text-2xl font-bold">200+</Text>
+                    <Text className="text-sm">Successful Projects</Text>
+                  </div>
+                </div>
+              </motion.div>
+            </Grid.Col>
+          </Grid>
+        </Container>
+
+        {/* Scrolling Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="mt-12"
+            animate={{ y: [0, 20, 0] }}
+            transition={{ repeat: Infinity, duration: 2 }}
           >
-            <Button
-              size="xl"
-              className="bg-neuro-blue hover:bg-[#2F6ECD] transition-colors"
-              rightSection={<ChevronRight size={20} />}
-            >
-              Explore Solutions
-            </Button>
+            <ChevronRight className="h-8 w-8 text-cultural-red rotate-90" />
           </motion.div>
-        </motion.div>
+        </div>
       </div>
 
+   
       {/* Services Section */}
       <Container size="xl" className="py-20 px-4 sm:px-6">
         {services.map((service, index) => (
           <Grid 
             key={index} 
             gutter="xl" 
-            className="mb-20 md:mb-24 group"
+            className={`mb-20 md:mb-24 group ${index % 2 === 0 ? 'bg-white' : 'bg-[#F5F5F5]'} py-12 px-6 rounded-xl`}
             justify="center"
             align="center"
           >
@@ -128,13 +162,14 @@ export default function ServicesPage() {
               <motion.div
                 initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                className="relative overflow-hidden rounded-2xl aspect-video shadow-2xl hover:shadow-neuro-blue/30 transition-all"
+                className="relative overflow-hidden rounded-2xl aspect-video shadow-xl hover:shadow-neuro-blue/20 transition-all"
               >
                 <img
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-tech-grey/20 to-transparent" />
               </motion.div>
             </Grid.Col>
 
@@ -145,17 +180,22 @@ export default function ServicesPage() {
                 className="md:px-6"
               >
                 <div className="mb-6">
-                  <Title order={2} className="text-3xl md:text-4xl text-white mb-2">
+                  <Title order={2} className="text-3xl md:text-4xl text-tech-grey mb-2 font-lato">
                     {service.title}
                   </Title>
-                  <div className="h-1 w-20 bg-creative-yellow rounded-full" />
+                  <div className="h-1 w-20 bg-gradient-to-r from-neuro-blue to-creative-yellow rounded-full" />
                 </div>
                 
-                <List spacing="md" size="lg" icon={<ChevronRight size={16} className="text-neuro-blue" />} className="mb-8">
+                <List 
+                  spacing="md" 
+                  size="lg" 
+                  icon={<ChevronRight size={16} className="text-neuro-blue" />} 
+                  className="mb-8 font-open-sans"
+                >
                   {service.items.map((item, itemIndex) => (
                     <List.Item 
                       key={itemIndex} 
-                      className="text-white hover:text-creative-yellow transition-colors"
+                      className="text-tech-grey hover:text-cultural-red transition-colors"
                     >
                       {item}
                     </List.Item>
@@ -164,9 +204,8 @@ export default function ServicesPage() {
 
                 <Button
                   rightSection={<ChevronRight size={18} className="transition-transform group-hover:translate-x-1" />}
-                  color="blue"
                   size="lg"
-                  className="bg-neuro-blue hover:bg-[#2F6ECD] group"
+                  className="bg-neuro-blue hover:bg-[#2F6ECD] group font-lato"
                 >
                   Explore Service
                 </Button>
