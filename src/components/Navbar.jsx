@@ -48,10 +48,8 @@ export default function Navigation() {
   return (
     <>
       <header
-        className={`fixed left-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-white/30 backdrop-blur-md h-14 shadow-md rounded-full top-6 left-1/2 transform -translate-x-1/2"
-            : "h-40 top-0"
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+          isScrolled ? "bg-white/30 backdrop-blur-md h-20 shadow-md" : "h-40"
         }`}
       >
         <div className="flex justify-between items-center px-6 h-full">
