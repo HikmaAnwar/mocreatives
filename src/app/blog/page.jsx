@@ -89,6 +89,7 @@ const BlogPage = () => {
               </span>
             ))}
           </h1>
+
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -99,6 +100,7 @@ const BlogPage = () => {
               to start with.
             </p>
           </motion.div>
+
         </motion.div>
       </section>
 
