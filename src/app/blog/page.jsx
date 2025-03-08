@@ -8,7 +8,7 @@ const BlogPage = () => {
   const [title, setTitle] = useState("");
   const fullTitle = "Welcome to MoCreatives Blog!";
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 7;
+  const postsPerPage = 7; // Increased to 7 to display up to 7 posts per page
 
   const blogContent = [
     {
@@ -94,16 +94,11 @@ const BlogPage = () => {
               </span>
             ))}
           </h1>
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <p className="text-center text-white font-sans text-sm pb-8 sm:text-base md:text-lg mt-2 pt-12 max-w-full">
-              A guide for beginners to understand the best programming languages
-              to start with.
-            </p>
-          </motion.div>
+          // Increased to 7 to display up to 7 posts per page
+          <p className="text-center text-white font-sans text-sm pb-8 sm:text-base md:text-lg mt-2 pt-12 max-w-full">
+            A guide for beginners to understand the best programming languages
+            to start with.
+          </p>
         </motion.div>
       </section>
 
